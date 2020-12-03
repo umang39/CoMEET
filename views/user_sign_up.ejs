@@ -1,0 +1,89 @@
+<link rel="stylesheet" href="/css/sign_up.css">
+
+
+<!-- <div id="signIn-Container">
+       
+       <div id="signIn-message">
+        
+        </div>
+
+        <div id="signIn-tempalte">
+            <h1> create acount</h1>
+                <form id="signIn" action="/users/create" method="POST">
+                    <input type="email" name="email" placeholder="your email" required><br>
+                    <input type="password" name="password" placeholder="password" required><br>
+                    <input type="submit" value="Sign In" title="click here to signIn">
+
+                </form>
+            <p id="googleSignLink"><a href="/users/auth/google"  title="click here to google signIn">Google Sign Up</a></p>
+        </div>
+</div> -->
+<div class="container rounded">
+    <h2 class="text-success">CREATE YOUR ACCOUNT !!!</h2>
+
+        <div class="jumbotron" style="border-radius: 20px;">
+        <form id="signIn" action="/users/create" method="POST">
+                <div class="form-row">
+                                <div class="form-group col-md-4">
+                                <label for="inputEmail4">Name</label>
+                                <input type="text" name="name" class="form-control" id="inputName" placeholder="Your Name" required>
+                                </div>
+                                <div class="form-group col-md-4">
+                                <label for="inputEmail4">Email</label>
+                                <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Email" required>
+                                </div>
+                                <div class="form-group col-md-4">
+                                <label for="inputPassword4">Password</label>
+                                <input type="password" name="password" class="form-control" id="inputPassword4" placeholder="Password" aria-describedby="passwordHelpInline" required> 
+                                <!-- <small id="passwordHelpInline" class="text-muted">
+                                Must be 8-20 characters long.
+                                </small> -->
+                                </div>
+                                <div class="form-group col-md-4">
+                                <label for="inputPassword4">Confirm Password</label>
+                                <input type="password"  name="confirm_password" class="form-control" id="inputPassword4" placeholder="Confirm Password" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputSpecilist">Specilist</label>
+                                <input type="text" name="Specilist" class="form-control" id="inputSpecilist" placeholder="Your Specilisation" required>
+                            </div>
+                        
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                <label for="inputBranch">Branch</label>
+                                <select id="inputBranch" class="form-control" name="Branch">
+                                    <option selected>Choose...</option>
+                                    <option>Computer Science and Engineering</option>
+                                    <option>Information Technology</option>
+                                    <option>Electromics and Communication Engineering</option>
+                                    <option>Electrical Engineering</option>
+                                    <option>Mechanical Engineering</option>
+                                    <option>Chemical Engineering</option>
+                                    <option>Civil Engineering</option>
+                                  </select>
+                                <!-- <input type="text" name="Branch" class="form-control" id="inputBranch" placeholder="Your Branch" required> -->
+                                </div>
+                                <div class="form-group col-md-4">
+                                <label for="inputYear">Year</label>
+                                <select id="inputYear" name="Year" class="form-control" required>
+                                    <option selected>Choose...</option>
+                                    <option value="First year">First year</option>
+                                    <option value="Second year">Second year</option>
+                                    <option value="Third year">Third year</option>
+                                    <option value="Final year">Final year</option>
+                                </select>
+                                </div>
+                            </div>
+                        
+                          
+                            <button type="submit" class="btn btn-primary">Sign in</button>
+                    </form>
+                
+        </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,210 @@
+<%- include("partials/header"); -%>
+
+<div class="card center" style="width:40rem;">
+    <div class="card-header">
+      <strong><center><h3>PROFILE</h3></center></strong>
+    </div>
+    <div class="card-body">
+      <h6 class="card-title"><center>Build Up CoMEET Profile</center></h6>
+      <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+      <!-- ////////////////////////////////////////////////////////////////////////////////// -->
+      <form action="/" method="POST">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputFname">First Name</label>
+            <input type="text" class="form-control" id="inputFname" name="fname" placeholder="First Name">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputLname">Last Name</label>
+            <input type="text" class="form-control" id="inputLname" name="lname" placeholder="Last Name">
+          </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="inputSpecialization">Specialization</label>
+              <input type="text" class="form-control" id="inputSpecialization" name="specialization" placeholder="Specialization">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputBranch">Branch</label>
+                <select id="inputBranch" class="form-control" name="branch">
+                  <option selected>Choose...</option>
+                  <option>Computer Science and Engineering</option>
+                  <option>Information Technology</option>
+                  <option>Electromics and Communication Engineering</option>
+                  <option>Electrical Engineering</option>
+                  <option>Mechanical Engineering</option>
+                  <option>Chemical Engineering</option>
+                  <option>Civil Engineering</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputYear">Year</label>
+                <select id="inputYear" class="form-control" name="year">
+                  <option selected>Choose...</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="inputSummary">Summary</label>
+          <input type="text" class="form-control" id="inputSummary" placeholder="Summary" name="summary">
+        </div>
+
+        <!-- /////////////////////////////////////////////////////////////// -->
+
+        <label for="">Training</label>
+        <div id="education_fields1" class="form-row">
+            <div class="form-group col-md-5">
+              <input id="" type="text" class="form-control"  name="Coursename1[]" value="" placeholder="Course">
+            </div>
+          
+            <div class="form-group col-md-5">
+              <input id="" type="text" class="form-control" name="organisation1[]" value="" placeholder="Organisation">
+            </div>
+          
+            <div class="form-group col-md-2">
+              <div class="input-group">
+                <div class="input-group-btn">
+                  <button class="btn btn-success" type="button"  onclick="education_fields1();"> <span class="glyphicon glyphicon-plus" aria-hidden="true">+</span> </button>
+                </div>
+              </div>
+            </div>
+          
+          <div class="clear"></div>
+        </div>        
+
+<!-- //////////////////////////////////////////////// -->
+
+<label for="">Internship</label>
+<div id="education_fields2" class="form-row">
+    <div class="form-group col-md-5">
+      <input type="text" class="form-control a" id="a" name="Coursename2[]" value="" placeholder="Course">
+    </div>
+  
+    <div class="form-group col-md-5">
+      <input type="text" class="form-control b" id="b" name="organisation2[]" value="" placeholder="Organisation">
+    </div>
+  
+    <div class="form-group col-md-2">
+      <div class="input-group">
+        <div class="input-group-btn">
+          <button class="btn btn-success" type="button"  onclick="education_fields2();"> <span class="glyphicon glyphicon-plus" aria-hidden="true">+</span> </button>
+        </div>
+      </div>
+    </div>
+  
+  <div class="clear"></div>
+</div>
+
+<!-- //////////////////////////////////////////////////////////// -->
+
+<label for="skills">Skills</label>
+    <div id="skills_field" class="form-row">
+        <div class="form-group col-md-4">
+          <input type="text" class="form-control" id="skills" placeholder="Skills" name="skill[]">
+        </div>
+        <div class="form-group col-md-2">
+            <div class="input-group">
+              <div class="input-group-btn">
+                <button class="btn btn-success" type="button"  onclick="skills_field();"> <span class="glyphicon glyphicon-plus" aria-hidden="true">+</span> </button>
+              </div>
+            </div>
+          </div>      
+          <div class="clear"></div>
+    </div>
+            <center><button type="submit" class="btn btn-primary ">Submit</button></center>        
+      </form>
+      <div class="card-footer text-muted">
+        <center>Copyright &copy; CoMEET 2020</center>
+    </div>
+    </div>
+    </div>
+      <!-- ////////////////////////////////////////////////////////////////// -->
+    
+      <script type="text/javascript">
+        var room1 = 1;
+        function education_fields1() {
+        
+        room1++;
+        var objTo = document.getElementById('education_fields1');
+        var divtest = document.createElement("div");
+        divtest.setAttribute("class", "form-group removeclass"+room1);
+        var rdiv = 'removeclass'+room1;
+        divtest.innerHTML = '<div class="form-row"><div class="form-group col-md-4"><input type="text" class="form-control" id="Coursename" name="Coursename[]" value="" placeholder="Course"></div><div class="form-group col-md-4"><input type="text" class="form-control" id="organisation" name="organisation[]" value="" placeholder="Organisation"></div><div class="form-group col-md-4"><div class="input-group"><div class="input-group-btn"> <button class="btn btn-danger" type="button" onclick="remove_education_fields('+ room1 +');"><span class="glyphicon glyphicon-minus" aria-hidden="true">-</span> </button></div></div></div><div class="clear"></div></div>';
+        
+        objTo.appendChild(divtest)
+        }
+        function remove_education_fields(rid) {
+         $('.removeclass'+rid).remove();
+        }
+        ////////////////////////////////////////////////////////////
+        
+        var room2=1;
+        var internship_course_array=[];
+        var internship_organisation_array=[];
+        
+        var str1 = $(".a").val();
+        internship_course_array.push(str1);
+
+        var str2 = $(".b").val();
+        internship_organisation_array.push(str2);
+
+        function education_fields2() {
+        room2++;
+        var objTo = document.getElementById('education_fields2');
+        var divtest = document.createElement("div");
+        divtest.setAttribute("class", "form-group removeclass2"+room2);
+        var rdiv = 'removeclass2'+room2;
+        divtest.innerHTML = '<div class="form-row"><div class="form-group col-md-4"><input id="" type="text" class="form-control aa" name="Coursename[]" value="" placeholder="Course"></div><div class="form-group col-md-4"><input type="text" class="form-control bb" id="" name="organisation[]" value="" placeholder="Organisation"></div><div class="form-group col-md-4"><div class="input-group"><div class="input-group-btn"> <button class="btn btn-danger" type="button" onclick="remove_education_fields2('+ room2 +');"><span class="glyphicon glyphicon-minus" aria-hidden="true">-</span> </button></div></div></div><div class="clear"></div></div>';
+        
+        objTo.appendChild(divtest);
+
+        str1 = $(".aa").val();
+        internship_course_array.push(str1);
+        console.log(internship_course_array);
+
+        
+        str2 = $(".bb").val();
+        internship_organisation_array.push(str2);
+        console.log(internship_organisation_array);
+
+        }
+        function remove_education_fields2(rid) {
+         $('.removeclass2'+rid).remove();
+        }
+
+
+
+
+
+
+
+
+
+        /////////////////////////////////////////////
+        var room3=1;
+        function skills_field(){
+            
+            room3++;
+            console.log(room3);
+            var objTo = document.getElementById('skills_field');
+            var divtest = document.createElement("div");
+            divtest.setAttribute("class","form-group removeclass3"+room3);
+            var rdiv = 'removeclass3'+room3;
+            divtest.innerHTML='<div class="form-row"><div class="form-group col-md-8"><input type="text" class="form-control" id="skills" placeholder="Skills" name="skill[]"></div><div class="form-group col-md-4"><div class="input-group"><div class="input-group-btn"><button class="btn btn-danger" type="button" onclick="remove_skills_field('+ room3 +');"><span class="glyphicon glyphicon-minus" aria-hidden="true">-</span></button></div></div></div><div class="clear"></div></div>';
+
+            objTo.appendChild(divtest)
+        }
+        function remove_skills_field(rid) {
+         $('.removeclass3'+rid).remove();
+        }
+        //////////////////////////////////////////////////////////////////////
+        
+
+        //////////////////////////////////////////////////////////////////////
+        </script>
+<%- include("partials/footer"); -%>

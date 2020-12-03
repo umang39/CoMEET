@@ -1,0 +1,107 @@
+<!-- <%- include("_header"); -%> -->
+
+
+<div class="card center" style="width: 45rem; margin: auto;" >
+    <div class="card-header">
+      <strong><center><h3>PROFILE</h3></center></strong>
+    </div>
+    <div class="card-body">
+      <h6 class="card-title"><center>Build Up CoMEET Profile</center></h6>
+      <!-- ////////////////////////////////////////////////////////////////////////////////// -->
+      <form action="/profile" method="POST" enctype="multipart/form-data">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputFname">First Name</label>
+            <input type="text" class="form-control" id="inputFname" name="name" value=<%=result.name%> placeholder="First Name">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputLname">Last Name</label>
+            <input type="text" class="form-control" id="inputLname" name="lname" placeholder="Last Name">
+          </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="inputSpecialization">Specialization</label>
+              <input type="text" class="form-control" placeholder="Specialization" name="specialization" value=<%=result.Specilist%>>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputBranch">Branch</label>
+                <select id="inputBranch" class="form-control" name="branch">
+                  <option selected><%=result.Branch%></option>
+                  <option>Computer Science and Engineering</option>
+                  <option>Information Technology</option>
+                  <option>Electromics and Communication Engineering</option>
+                  <option>Electrical Engineering</option>
+                  <option>Mechanical Engineering</option>
+                  <option>Chemical Engineering</option>
+                  <option>Civil Engineering</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputYear">Year</label>
+                <select id="inputYear" class="form-control" name="year">
+                  <option selected><%=result.Year%></option>
+                  <option>First Year</option>
+                  <option>Second Year</option>
+                  <option>Third Year</option>
+                  <option>Final Year</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="inputSummary">Summary</label>
+          <input type="text" class="form-control" placeholder="Summary" name="summary" value=<%=result.Summary%>>
+        </div>
+
+        <!-- /////////////////////////////////////////////////////////////// -->
+
+        <label for="">Training</label>
+        <div id="education_fields1" class="form-row">
+            <div class="form-group col-md-6">
+              <input id="" type="text" class="form-control" name="course" placeholder="Course" value=<%=result.training_course%>>
+            </div>
+          
+            <div class="form-group col-md-6">
+              <input id="" type="text" class="form-control" name="organisation1" placeholder="Organisation" value=<%=result.training_organisation%>>
+            </div>
+        </div>        
+
+<!-- //////////////////////////////////////////////// -->
+
+      <label for="">Internship</label>
+      <div class="form-row">
+          <div class="form-group col-md-6">
+            <input type="text" class="form-control" name="specialization1" placeholder="Specialization" value=<%=result.internship_specialization%>>
+          </div>
+        
+          <div class="form-group col-md-6">
+            <input type="text" class="form-control" name="organisation2" placeholder="Organisation" value=<%=result.internship_organisation%>>
+          </div>
+</div>
+
+<!-- //////////////////////////////////////////////////////////// -->
+
+        <div class="form-group">
+          <label for="inputSummary">Skills</label>
+          <input type="text" class="form-control" placeholder="Skills" name="skills" value=<%=result.skills%>>
+        </div>
+
+        <div class="form-group">
+          <label for="inputSummary">Hobbies</label>
+          <input type="text" class="form-control" placeholder="Hobbies" name="hobbies" value=<%=result.hobbies%>>
+        </div
+
+        <div class="form-group">
+          <input type="file" name= "user"/>
+        </div>
+        <div class="form-group">
+          <center><button type="submit" class="btn btn-primary">Save</button></center> 
+        </div>       
+      </form>
+    </div>
+    </div>
+      <!-- ////////////////////////////////////////////////////////////////// -->
+
+      
+

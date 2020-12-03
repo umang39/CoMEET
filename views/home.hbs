@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script  src="./jquery.js"></script>
+    {{!-- <script async defer src="https://code.jquery.com/jquery-3.5.1.min.js"></script> --}}
+    <script src="./script.js"></script>
+    <style>
+        body{
+            background-color: #00d4f0;
+background-image: url("https://www.transparenttextures.com/patterns/redox-02.png");
+        }
+         </style> 
+    {{!-- <link rel="stylesheet" href="./style.css"> --}}
+</head>
+<body>
+<div class="container p-3 mt-2 shadow-sm" style="background-color:#bce6eb ; border-radius :20px; box-shadow : 0px 0px 12px 9px #3333;margin-bottom: 10px;">
+    <h2 class="text-success">CREATE YOUR POST !!!</h2>
+    <br>
+    <form method="POST" action="/posts/makePost" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="postTitle">Title</label>
+            <input type="text" name="postTitle" class="form-control" id="postTitle" placeholder="post titile">
+        </div>
+        
+        <div class="form-group">
+            <label for="postDesc">Description</label>
+            <textarea class="form-control" id="postDesc" rows="3" name="postDesc"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="">URL:</label>
+            <input type="text" name="link" id="" placeholder="Link...">&nbsp;&nbsp;
+            <input type="file" name="avatar" id="">
+            </div>
+            
+        
+        <div class="form-group">
+            <button class="btn btn-primary" id="postSub">submit</button>
+        </div>
+    </form>
+</div>
+    <br>
+    <div class="container ">
+        <h2 style="color:#206a5d;text-shadow:0px 0px 2px green" ><strong><h2>RECENT POSTS</h2></strong></h2>
+        {{#each result as |data|}}
+            <div class="card text-center shadow" style="overflow : hidden;border-radius: 20px;box-shadow : 0px 0px 8px 7px #33333; margin-top:2rem;background-image : url(/images/post.jpg);">
+            <div class="row m-2">
+                <div class="col-md-6 col-sm-12">
+                    <div class="row text-left">
+                   <div class="col-3 text-right">
+                    {{#if data.pic }}
+                    <img src= {{data.pic}} height="100" width="100"  alt="" srcset="" class="rounded-circle">                         
+                   {{else}}
+                    <img src="/images/1.png" height="100" width="100"  alt="" srcset="" class="rounded-circle">                         
+
+                   {{/if}}
+                   {{!-- {{#if !data.pic }}
+                   {{/if}} --}}
+                   </div>
+                        <div class="col-9 ">
+                                <div class="row text-left">
+                                    <div class="col-12">
+                                        <form action="/posts/profile" method="get">
+                                        <input type="text" name = "data"value={{data.email}} style="border: none;font-weight : bolder;">
+                                        <br>
+                                          <b class="display-5" >{{data.name}}</b>
+                                         <button type="submit" style="border: none;border-radius :40px;">
+                                              view
+                                         </button>
+                                        </form>
+                                        
+                                    </div>
+                                    <div class="col-12">
+                                        <small>{{data.specialist}}</small></div>
+                                    <div class="col-12">{{data.branch}} , {{data.year}} </div>
+                                </div>
+                        </div>
+                        
+                    </div>
+            
+                </div>
+          
+            </div>
+          
+
+            <div class="card-body mt-2" style="margin:2rem">
+                <h5 class="card-title text-left yu">{{data.title}}</h5>
+                <p class="card-text text-left">{{data.body}}{{#if data.like}}
+                    <a href={{data.like}}>{{data.like}}</a>
+                    
+                {{/if}}
+                </p>
+            {{#if data.media}} 
+               <div class="row justify-content-md-center">
+                  
+                <embed src={{data.media}}  class="col-6" alt="" srcset="" style="text-align: center;height:100;width:300px;"></embed>
+                </div>
+             {{/if}}
+             
+            </div>
+            
+            <div class="col-12 bg-dark mb-0 heartBtn" style="cursor: pointer;">
+                 <b class="text-center text-light bg-dark" style="border: none;">like <i id="heartVal">{{data.heart}}</i></b>
+            </div>
+          </div>
+          
+        {{/each}}
+        
+    </div>
+
+</body>
+
+</html>
