@@ -2,8 +2,8 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
-const port=4333 || process.env.PORT;
-
+const port= process.env.PORT;
+const host = '0.0.0.0'
 const db = require('./config/mongoose')
 const bodyParser = require('body-parser')
 const expressLayouts = require('express-ejs-layouts');
@@ -72,6 +72,6 @@ app.use(passport.setAuthenticatedUser);
 app.use('/', require('./routes'));
 // app.use('/post',require('./routes/post').route())
 // fire up sever
-app.listen(port,()=>{
+app.listen(port,host,()=>{
     console.log('server started at http://localhost:4333')
 })
