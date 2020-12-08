@@ -66,7 +66,7 @@ let upload = multer({
       result.hobbies=req.body.hobbies,
       result.profile = '/profile/'+  d + 'avatar' + path.extname(req.file.originalname)
     req.user.name = req.body.name
-    result.save();
+    await result.save();
     console.log(result);;
     res.redirect("users/profile")
   });
